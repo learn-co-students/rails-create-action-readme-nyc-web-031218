@@ -40,3 +40,74 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Random Title"], ["description", "Anything"], ["created_at", "2018-04-08 23:29:21.686532"], ["updated_at", "2018-04-08 23:29:21.686532"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (11.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/posts/new" for ::1 at 2018-04-08 19:38:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (24.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 552ms (Views: 516.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts" for ::1 at 2018-04-08 19:38:35 -0400
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts"
+  Rendered posts/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 245ms (Views: 243.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2018-04-08 19:38:40 -0400
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 58ms (Views: 57.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2018-04-08 19:38:47 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8UL0axeNhZ5i0mXPM7HdoI9Ydl36Tz78FV2HEbwZckXkHOq7XAEUbh69f63smqnmskJ43Xg8rSwV8FNwlG6M9A==", "title"=>"Hello", "description"=>"testing", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Hello"], ["description", "testing"], ["created_at", "2018-04-08 23:38:47.610645"], ["updated_at", "2018-04-08 23:38:47.610645"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 3.0ms)
+
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts", :id=>nil} missing required keys: [:id]):
+  app/controllers/posts_controller.rb:15:in `create'
+
+
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.5ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/Henry/.rvm/gems/ruby-2.3.3/gems/actionpack-4.2.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (99.9ms)
+
+
+Started POST "/posts" for ::1 at 2018-04-08 19:40:03 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8UL0axeNhZ5i0mXPM7HdoI9Ydl36Tz78FV2HEbwZckXkHOq7XAEUbh69f63smqnmskJ43Xg8rSwV8FNwlG6M9A==", "title"=>"Hello", "description"=>"testing", "commit"=>"Submit Post"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello"], ["description", "testing"], ["created_at", "2018-04-08 23:40:04.005216"], ["updated_at", "2018-04-08 23:40:04.005216"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 10ms (ActiveRecord: 2.1ms)
+
+
+Started POST "/posts" for ::1 at 2018-04-08 19:40:04 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8UL0axeNhZ5i0mXPM7HdoI9Ydl36Tz78FV2HEbwZckXkHOq7XAEUbh69f63smqnmskJ43Xg8rSwV8FNwlG6M9A==", "title"=>"Hello", "description"=>"testing", "commit"=>"Submit Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["title", "Hello"], ["description", "testing"], ["created_at", "2018-04-08 23:40:04.014021"], ["updated_at", "2018-04-08 23:40:04.014021"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 4ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/posts/5" for ::1 at 2018-04-08 19:40:04 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mPost Load (0.3ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 5]]
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 125ms (Views: 94.3ms | ActiveRecord: 0.3ms)
